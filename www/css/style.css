@@ -1,0 +1,189 @@
+:root {
+    --color-bg-1: #eee;
+    --color-bg-2: #ddd;
+    --color-hl: lightgreen;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: var(--color-bg-1);
+    user-select: none;
+}
+button:focus {
+    outline: 0;
+}
+nav {
+    position: fixed;
+    bottom: 0;
+    height: 9%;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+    background-color: var(--color-bg-1);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.12);
+}
+nav > * {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 5px solid transparent;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1.3em;
+}
+nav > *:first-child {border-left: 0;}
+nav > *:last-child {border-right: 0;}
+nav > .active {
+    border-top: 5px solid var(--color-hl);
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.view {
+    position: fixed;
+    width: 100vw;
+    height: 91vh;
+    display: none;
+}
+.view.active {
+    display: block;
+}
+
+/* Timer view layout */
+#timer-view.active {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+#timer-section-other {
+    flex-basis: 38%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+#timer-section-button {
+    flex-basis: 42%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+#timer-section-controls {
+    flex-basis: 20%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Timer extra stuff (heartrate, location) */
+#timer-section-other > div {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 32vw;
+    height: 32vw;
+    padding: 8px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.3);
+}
+#timer-section-other > div > .button-area {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Timer stopwatch */
+#timer-stopwatch > span {
+    font-size: 3em;
+    font-family: monospace, monospace;
+}
+#timer-ms-div, #timer-ms-num {
+    color: #777;
+}
+
+/* Timer big main button */
+#timer-button {
+    border-radius: 100%;
+    height: 60vw;
+    width: 60vw;
+    margin-top: 24px;
+    font-weight: bold;
+    font-size: 2.5em;
+    background-color: darkgreen;
+    color: whitesmoke;
+    border: 0;
+    box-shadow: inset 0 0 18px 0 rgba(0, 0, 0, 0.4),
+    2px 1px 10px 0 rgba(0, 0, 0, 0.5);
+    transition-duration: 0.1s;
+}
+#timer-button.running {background-color: darkred;}
+#timer-button:disabled {background-color: gray;}
+#timer-button::after {content: "START"}
+#timer-button.running::after {content: "PAUSE"}
+
+/* Timer controls (reset, save) */
+#timer-section-controls.hide {visibility: hidden;}
+#timer-section-controls > button {
+    margin: 0 12px;
+    height: 42px;
+    width: 84px;
+    font-size: 1.2em;
+}
+
+/* List view */
+#list-view {
+    overflow-y: scroll;
+    font-size: 1.2em;
+}
+#events-list {
+    margin-bottom: 10vh;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+}
+#events-list > div {
+    height: 120px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    background-color: whitesmoke;
+    border-bottom: 1px solid gray;
+}
+.run-start-time {
+    font-style: italic;
+    color: gray;
+    margin-bottom: 10px;
+    margin-left: 3vw;
+}
+.run-total-time {
+    margin-left: 6vw;
+}
+
+#map-container{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    backdrop-filter: brightness(0.7) blur(4px);
+}
+#map {
+    width: 100%;
+    height: 50%;
+}
+
+/* Special */
+.hide {
+    display: none;
+}
+.invisible {
+    visibility: hidden;
+}

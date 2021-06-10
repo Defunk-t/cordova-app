@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise App</title>
+        <meta name="author" content="Aidan Loughran">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <script src="cordova.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/timer.js"></script>
+        <script src="js/list.js"></script>
+        <script src="js/map.js"></script>
+        <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+        <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/toggle-switchy.css">
+    </head>
+    <body>
+        <div id="map-container" class="invisible">
+            <div id="map"></div>
+        </div>
+        <div id="timer-view" class="view">
+            <section id="timer-section-other">
+                <!-- TODO heartrate metronome
+                <div>
+                    <h2>Heartrate</h2>
+                    <div class="button-area">
+                        <button id="timer-heartrate-button" disabled>Tap</button>
+                    </div>
+                </div>
+                -->
+                <div>
+                    <h2>Location</h2>
+                    <div class="button-area">
+                        <label class="toggle-switchy">
+                            <input type="checkbox" id="timer-location-button">
+                            <span class="toggle">
+                                <span class="switch"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+            <section id="timer-section-button">
+                <p id="timer-stopwatch">
+                    <span id="timer-h-num" class="hide">00</span>
+                    <span id="timer-h-div" class="hide">:</span>
+                    <span id="timer-m-num">00</span>
+                    <span>:</span>
+                    <span id="timer-s-num">00</span>
+                    <span id="timer-ms-div">:</span>
+                    <span id="timer-ms-num">000</span>
+                </p>
+                <button id="timer-button"></button>
+            </section>
+            <section id="timer-section-controls" class="hide">
+                <button id="timer-reset-button">RESET</button>
+                <button id="timer-save-button">SAVE</button>
+            </section>
+        </div>
+        <div id="list-view" class="view">
+            <div id="events-list"></div>
+        </div>
+        <nav>
+            <!-- FIXME: Use icons for navigation -->
+            <div id="timer-nav">Timer</div>
+            <div id="list-nav">List</div>
+        </nav>
+</body>
+</html>
